@@ -1,6 +1,6 @@
-//Business logic section.
+//Business logic section.=======================================================
 
-//section for the orderlist and it's prototype methods.
+//section for the orderlist and it's prototype methods.-------------------------
 //creates an object with an array to store all orders in.
 
 function OrderList() {
@@ -8,14 +8,15 @@ function OrderList() {
   this.orderId = 0;
 }
 
-//This prototype assigns id's to new orders while adding them to the orderlist array.
+//This prototype assigns id's to new orders while adding them to the orderlist
+//array. I will add functionality to call up a previous order at a later time.
 
 OrderList.prototype.addOrder = function (newOrder) {
   newOrder.orderId = this.assignId();
   this.orders.push(newOrder);
 };
 
-//Section for order objects and order prototypes.
+//Section for order objects and order prototypes.------------------------------
 
 function Order(accountName) {
   this.accountName = accountName,
@@ -30,10 +31,13 @@ OrderList.prototype.assignId = function () {
   return this.orderId;
 };
 
+//creates a new pizza while changing the total cost for the order.
 Order.prototype.addPizza = function (newPizza) {
   this.pizzas.push(newPizza);
   this.totalCost += newPizza.currentCost;
 };
+
+//Section for Pizza objects and prototypes--------------------------------------
 
 function Pizza(name, size, toppings) {
   this.name = name,
@@ -48,16 +52,8 @@ Pizza.prototype.addTopping = function (newTopping) {
 };
 
 var currentOrderList = new OrderList();
-var order1 = new Order('Daniel');
-var order2 = new Order('Bob');
-var newPizza1 = new Pizza('pepperoni', 'large', ['olives', 'onions']);
 
-currentOrderList.addOrder(order1);
-currentOrderList.addOrder(order2);
-
-order1.addPizza(newPizza1);
-
-//User interface logic section.
+//User interface logic section.=================================================
 $(document).ready(function () {
   $('#newOrder').submit(function (event) {
     event.preventDefault();
@@ -68,6 +64,8 @@ $(document).ready(function () {
     var newTopping = $('input:checkbox[name=toppings]:checked').val();
     var newPizza = new Pizza(inputtedPizzaType, inputtedPizzaSize);
     var inputtedOrder = new Order(inputtedOrderName);
+
+    //evaluates each checked topping and adds to cost of pizza.
 
     $('input:checkbox[name=toppings]:checked').each(function () {
             newPizza.addTopping($(this).val());
