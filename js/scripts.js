@@ -36,13 +36,20 @@ Order.prototype.addPizza = function (newPizza) {
 function Pizza(name, size, toppings) {
   this.name = name,
   this.size = size,
-  this.toppings = toppings;
+  this.toppings = [],
+  this.currentCost = 0;
 }
+
+Pizza.prototype.addTopping = function (newTopping) {
+  this.toppings.push(newTopping);
+  this.currentCost += 2.50;
+};
 
 var currentOrderList = new OrderList();
 var order1 = new Order('Daniel');
 var order2 = new Order('Bob');
 var newPizza1 = new Pizza('pepperoni', 'large', ['olives', 'onions']);
+
 currentOrderList.addOrder(order1);
 currentOrderList.addOrder(order2);
 
