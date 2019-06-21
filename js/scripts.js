@@ -71,14 +71,34 @@ $(document).ready(function () {
     event.preventDefault();
     var inputtedOrderName = $('input#orderName').val();
     $('input#orderName').val('');
-    var newPizza = new Pizza('', '', )
+    var inputtedPizzaType = $('input:checkbox[name=pizzatype]:checked').val();
+    var inputtedPizzaSize = $('input:checkbox[name=pizza]:checked').val();
+    console.log(inputtedPizzaSize);
+    var newTopping = $('input:checkbox[name=toppings]:checked').val();
+    var newPizza = new Pizza(inputtedOrderName, inputtedPizzaType);
+    console.log(newPizza);
     var inputtedOrder = new Order(inputtedOrderName);
-    currentOrderList.addOrder(inputtedOrder);
     var runningTotal = 0;
+
+    //adds the cost of pizza selected to runningtotal.
     $('input:checkbox[name=pizza]:checked').each(function () {
         runningTotal += (parseInt($(this).val()));
       });
 
+    $(newTopping).each(function () {
+            newPizza.addTopping($(this).val());
+          });
+
+    console.log(newPizza);
+
+    //
+    // $('input:checkbox[name=toppings]:checked').each(function () {
+    //     newPizza.addTopping($(this).val());
+    //   });
+
+    // console.log(newPizza);
+    inputtedOrder.addPizza(newPizza);
+    currentOrderList.addOrder(inputtedOrder);
     $('#placedOrder').text('Your total cost is $ ' + currentOrderList);
 
   });
