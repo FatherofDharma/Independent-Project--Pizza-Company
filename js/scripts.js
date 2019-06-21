@@ -66,17 +66,20 @@ currentOrderList.addOrder(order2);
 order1.addPizza(newPizza1);
 
 //User interface logic section.
-$(document).ready(function() {
+$(document).ready(function () {
   $('#newOrder').submit(function (event) {
     event.preventDefault();
-
     var inputtedOrderName = $('input#orderName').val();
     $('input#orderName').val('');
-    console.log(inputtedOrderName);
-    var inputtedOrder = new Order(inputtedOrderName)
+    var newPizza = new Pizza('', '', )
+    var inputtedOrder = new Order(inputtedOrderName);
     currentOrderList.addOrder(inputtedOrder);
-    $('#placedOrder').text('Your total cost is $ ' + currentOrderList)
+    var runningTotal = 0;
+    $('input:checkbox[name=pizza]:checked').each(function () {
+        runningTotal += (parseInt($(this).val()));
+      });
 
+    $('#placedOrder').text('Your total cost is $ ' + currentOrderList);
 
-  })
-})
+  });
+});
