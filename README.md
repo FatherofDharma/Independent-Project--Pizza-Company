@@ -1,6 +1,6 @@
 # __Pizza Company__
 
-#### __
+#### _A website where you can order pizzas. Created by Daniel Hongel_
 
 _Current version created on June 21, 2019_
 
@@ -8,37 +8,26 @@ _Current version created on June 21, 2019_
 
 ## Description
 
-__
+_This website takes a pizza order from the user and returns a total cost. It has three different types of pizza, as well as various size and topping options. This project is the fourth independent project for the coding school Epicodus. This project is intended to show comfort using objects, constructors, and prototype methods._
 
 ## Specs
 
 _Expected behaviors of this program will include:_
 
-_This program should create an order with an account name._
+_This program should create an order with an account name and pizza order._
 
 * Example input:  Daniel  
-* Example output: Daniel, pizza: pepperoni, toppings: olives
+* Example output: Daniel, pizza: pepperoni, toppings: olives (this output is in the business logic)
 
-_This program should _
+_This program should add cost per topping used._
 
-* Example input:
-* Example output:
+* Example input: 2 toppings selected.
+* Example output: $4
 
-_This program should _
+_This program should give the user a total cost of their pizza order._
 
-* Example input:
-* Example output:
-
-_This program should _
-
-* Example input:
-* Example output:
-
-_This program should _
-
-* Example input:
-* Example output:
-
+* Example input: medium pepperoni pizza with olives and onions.
+* Example output: Your total is $16.
 
 ## Requirements for Installation and Setup.
 

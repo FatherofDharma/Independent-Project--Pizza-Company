@@ -23,20 +23,12 @@ function Order(accountName) {
   this.totalCost = 0;
 }
 
-//assigns an id to an order.
+//assigns an id to an order. Will add functionality for using this later.
 
 OrderList.prototype.assignId = function () {
   this.orderId += 1;
   return this.orderId;
 };
-
-// OrderList.prototype.findAccount = function () {
-//   for(i=0; i < this.orders.length; i++) {
-//     if (this.orders[i]) {
-//       if
-//     }
-//   }
-// }
 
 Order.prototype.addPizza = function (newPizza) {
   this.pizzas.push(newPizza);
@@ -47,22 +39,13 @@ function Pizza(name, size, toppings) {
   this.name = name,
   this.size = size,
   this.toppings = [],
-  this.currentCost = 0;
+  this.currentCost = 12;
 }
 
 Pizza.prototype.addTopping = function (newTopping) {
   this.toppings.push(newTopping);
-  this.currentCost += 2.50;
+  this.currentCost += 2;
 };
-
-//assigns cost to pizza depending on size selected
-// Pizza.prototype.pizzaCost = function (){
-//   if (inputtedPizzaSize === 'small') {
-//     console.log('small is good');
-//   } else if (inputtedPizzaSize === 'medium') {
-//     console.log('medium is better');
-// };
-// };
 
 var currentOrderList = new OrderList();
 var order1 = new Order('Daniel');
@@ -73,9 +56,6 @@ currentOrderList.addOrder(order1);
 currentOrderList.addOrder(order2);
 
 order1.addPizza(newPizza1);
-
-
-
 
 //User interface logic section.
 $(document).ready(function () {
@@ -88,32 +68,12 @@ $(document).ready(function () {
     var newTopping = $('input:checkbox[name=toppings]:checked').val();
     var newPizza = new Pizza(inputtedPizzaType, inputtedPizzaSize);
     var inputtedOrder = new Order(inputtedOrderName);
-    var runningTotal = 0;
-    console.log(newPizza);
-
-    // //adds the cost of pizza selected to runningtotal.
-    // $('input:checkbox[class=size]:checked').each(function () {
-    //     runningTotal += (parseInt($(this).val()));
-    //     console.log(runningTotal);
-    //   });
-
-console.log(inputtedPizzaSize)
-    if(inputtedPizzaSize === "small") {
-      alert('yay, small!');
-    };
 
     $('input:checkbox[name=toppings]:checked').each(function () {
             newPizza.addTopping($(this).val());
           });
 
-
-
-    //
-    // $('input:checkbox[name=toppings]:checked').each(function () {
-    //     newPizza.addTopping($(this).val());
-    //   });
-
-    // console.log(newPizza);
+    var runningTotal = newPizza.currentCost;
     inputtedOrder.addPizza(newPizza);
     currentOrderList.addOrder(inputtedOrder);
     $('#placedOrder').text('Your total cost is $ ' + runningTotal);

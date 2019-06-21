@@ -2,3 +2,8 @@
   border-style: solid;
   border-color: black;
 } */
+
+body {
+  background-color: rgb(126, 9, 58);
+  color: white;
+}
