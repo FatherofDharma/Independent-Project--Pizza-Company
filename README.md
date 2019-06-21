@@ -14,10 +14,10 @@ __
 
 _Expected behaviors of this program will include:_
 
-_This program should_
+_This program should create an order with an account name._
 
-* Example input:
-* Example output:
+* Example input:  Daniel  
+* Example output: Daniel, pizza: pepperoni, toppings: olives
 
 _This program should _
 

@@ -20,6 +20,7 @@ OrderList.prototype.addOrder = function (newOrder) {
 function Order(accountName) {
   this.accountName = accountName,
   this.pizzas = [];
+  this.totalCost = 0;
 }
 
 //assigns an id to an order.
@@ -29,8 +30,17 @@ OrderList.prototype.assignId = function () {
   return this.orderId;
 };
 
+// OrderList.prototype.findAccount = function () {
+//   for(i=0; i < this.orders.length; i++) {
+//     if (this.orders[i]) {
+//       if
+//     }
+//   }
+// }
+
 Order.prototype.addPizza = function (newPizza) {
   this.pizzas.push(newPizza);
+  this.totalCost += newPizza.currentCost;
 };
 
 function Pizza(name, size, toppings) {
@@ -56,3 +66,17 @@ currentOrderList.addOrder(order2);
 order1.addPizza(newPizza1);
 
 //User interface logic section.
+$(document).ready(function() {
+  $('#newOrder').submit(function (event) {
+    event.preventDefault();
+
+    var inputtedOrderName = $('input#orderName').val();
+    $('input#orderName').val('');
+    console.log(inputtedOrderName);
+    var inputtedOrder = new Order(inputtedOrderName)
+    currentOrderList.addOrder(inputtedOrder);
+    $('#placedOrder').text('Your total cost is $ ' + currentOrderList)
+
+
+  })
+})

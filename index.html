@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <script
 			  src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -10,7 +11,20 @@
         <script src="js/scripts.js" type="text/javascript"></script>
     <title>Dan's Pizza</title>
   </head>
-  <body>
+  <body class="container">
+    <form id="newOrder">
+      <h1>Please enter your Name and select your pizza options below</h1>
+      <label for="name">Name on Order</label>
+      <input id="orderName" type="text" name="name" value="">
+      <h2>Pizza Type</h2>
+      <input type="checkbox" name="pizza" value="pepperoni">Pepperoni<br>
+      <input type="checkbox" name="pizza" value="hawaiian">Hawaiian<br>
+      <input type="checkbox" name="pizza" value="works">Works<br>
+      <h2></h2>
+      <button type="submit" class="button" name="button">Submit your Order.</button>
+    </form>
+    <div id="placedOrder">
 
+    </div>
   </body>
 </html>
