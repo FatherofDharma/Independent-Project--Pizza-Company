@@ -29,9 +29,9 @@ OrderList.prototype.assignId = function () {
   return this.orderId;
 };
 
-// Order.prototype.addPizza() {
-//
-// }
+Order.prototype.addPizza = function (newPizza) {
+  this.pizzas.push(newPizza);
+};
 
 function Pizza(name, size, toppings) {
   this.name = name,
@@ -42,10 +42,10 @@ function Pizza(name, size, toppings) {
 var currentOrderList = new OrderList();
 var order1 = new Order('Daniel');
 var order2 = new Order('Bob');
-var newPizza = new Pizza('pepperoni', 'large', ['olives', 'onions']);
+var newPizza1 = new Pizza('pepperoni', 'large', ['olives', 'onions']);
 currentOrderList.addOrder(order1);
 currentOrderList.addOrder(order2);
 
-// order1.addPizza
+order1.addPizza(newPizza1);
 
 //User interface logic section.
