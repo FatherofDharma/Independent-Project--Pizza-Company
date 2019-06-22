@@ -65,6 +65,10 @@ $(document).ready(function () {
     var newPizza = new Pizza(inputtedPizzaType, inputtedPizzaSize);
     var inputtedOrder = new Order(inputtedOrderName);
 
+    if ($($('input:radio[class=size]:checked').val() === "Small")) {
+      alert('its small');
+    }
+
     //evaluates each checked topping and adds to cost of pizza.
 
     $('input:checkbox[name=toppings]:checked').each(function () {
