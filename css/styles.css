@@ -3,7 +3,17 @@
   border-color: black;
 } */
 
+h1 {
+  text-align: center;
+}
+
 body {
-  background-color: rgb(126, 9, 58);
+  /* background-color: rgb(126, 9, 58); */
+  background-image: url(../img/pizza.png);
+  background-size: 250%;
   color: white;
+}
+
+#placedOrder {
+  font-size: 30px;
 }

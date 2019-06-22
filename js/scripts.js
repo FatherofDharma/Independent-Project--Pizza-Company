@@ -59,13 +59,13 @@ $(document).ready(function () {
     event.preventDefault();
     var inputtedOrderName = $('input#orderName').val();
     $('input#orderName').val('');
-    var inputtedPizzaType = $('input:checkbox[name=pizzatype]:checked').val();
-    var inputtedPizzaSize = $('input:radio[class=size]:checked').val();
+    var inputtedPizzaType = $('input:radio[name=pizzatype]:checked').val();
+    var inputtedPizzaSize = $('input:radio[name=size]:checked').val();
     var newTopping = $('input:checkbox[name=toppings]:checked').val();
     var newPizza = new Pizza(inputtedPizzaType, inputtedPizzaSize);
     var inputtedOrder = new Order(inputtedOrderName);
 
-    if ($($('input:radio[class=size]:checked').val() === "Small")) {
+    if (inputtedPizzaSize === "Small") {
       alert('its small');
     }
 
@@ -78,7 +78,7 @@ $(document).ready(function () {
     var runningTotal = newPizza.currentCost;
     inputtedOrder.addPizza(newPizza);
     currentOrderList.addOrder(inputtedOrder);
-    $('#placedOrder').text('Your total cost is $ ' + runningTotal);
+    $('#placedOrder').text('Your total comes to $ ' + runningTotal);
 
   });
 });
